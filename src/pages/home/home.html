@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>خانه</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<!--login button when user doesn't login and logout button when login-->
+<ion-content padding>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <button ion-button *ngIf="!isLogin && !sw" class="login" round (click)="login()">ورود</button>
+      <button ion-button *ngIf="isLogin && !sw" class="login" round (click)="logOut()">خروج</button>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+<!--signup button when doesn't login-->
+  <ion-row *ngIf="!isLogin && !sw" >
+    <ion-col></ion-col>
+    <ion-col>
+      <button ion-button class="signUp"  (click)="signUp()" round>عضویت</button>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+<!--show uuser_infoinfo when pruser_infoinfo button-->
+  <ion-card-content *ngIf="sw">
+  نام کاربری:{{username}}
+  </ion-card-content>
+
+  <ion-card-content *ngIf="sw">
+    ایمیل:{{email}}
+  </ion-card-content>
+
+  <ion-card-content *ngIf="sw">
+    شماره تماس:{{phone}}
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <button ion-button class="signUp" *ngIf="isLogin && !sw" (click)="user_info()" round>مشخصات کاربر</button>
+      <button ion-button class="signUp" *ngIf="sw" (click)="back()" round>بازگشت</button>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+</ion-content>
